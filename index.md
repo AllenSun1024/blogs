@@ -1,7 +1,3 @@
 ---
-title: Welcome to visit!
+title: Allen's Blog
 ---
-
-# Introduction
-
-My name is **Allen**...
