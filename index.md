@@ -8,5 +8,5 @@ title: Allen's Blog
 
 # CryptoCurrency
 
-1. [Functions of Money](https://allensun1024.github.io/blogs/2024/04/23/what-is-money.html)
+1. [What is Money?](https://allensun1024.github.io/blogs/2024/04/23/what-is-money.html)
 
