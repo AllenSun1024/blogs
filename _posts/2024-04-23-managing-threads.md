@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "How to manage multi-threads?"
+title:  "How to Manage Multi-threads?"
 author: Allen Sun
 tags: C++ Concurrency Thread
 ---
