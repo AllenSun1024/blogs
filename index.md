@@ -8,4 +8,4 @@ title: Allen's Blog
 
 # CryptoCurrency
 
-# Algorithm
+1. [Money](https://allensun1024.github.io/blogs/2024/04/23/what-is-money.html)
