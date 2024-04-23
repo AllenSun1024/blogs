@@ -15,7 +15,7 @@ tags: CryptoCurrency Bitcoin Money
 
 在与世隔绝的、仅有少数人的经济体中，没有专业化生产和交易的需求，人与人之间直接交换赖以生存的必需品。
 
-## 物物交换有哪些缺点？
+## 物物交换有哪些局限性？
 
 在更加复杂、人数更多的经济体中，专业化生产和交易的需求更多，Coincidence of wants问题更加突出，物物交换不能解决Coincidence of wants问题。Coincidence of wants指“你想买的商品，由不想要你所卖商品的人生产”，可以从下述3个视角理解该问题：
 
@@ -37,8 +37,24 @@ tags: CryptoCurrency Bitcoin Money
 
     - 假设你想在一个地方卖掉你的房子，并在另一个地方买套房子，由于房子不可以搬运，所以不能实现。
 
-# 货币的功能：交换媒介(A medium of exchange)
+# 什么是货币？
 
-# 货币的功能：保存价值(Store of value)
+**A good that assumes the role of a widely accepted medium of exchange is called money.**
 
-# 货币的功能：计量单位(Unit of account)
+针对物物交换的局限性，货币应具有下述性质：
+
+1. 可以方便地被拆分为更小的单位，或者被聚合为更大的单位，从而允许持有者按照他想要的数量出售它。
+
+2. 含有的价值不随时间变化而大幅衰减。
+
+3. 便于携带与运输，即：单位重量下具有较高的价值。
+
+## 货币的功能
+
+### 交换媒介(A medium of exchange)
+
+### 保存价值(Store of value)
+
+### 计量单位(Unit of account)
+
+## 货币的历史
