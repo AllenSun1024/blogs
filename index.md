@@ -4,7 +4,7 @@ title: Allen's Blog
 
 # C++
 
-1. [How to Manage Threads?](https://allensun1024.github.io/blogs/2024/04/23/managing-threads.html)
+1. [Smart Pointers](https://allensun1024.github.io/blogs/2024/04/24/smart-pointers.html)
 
 # CryptoCurrency
 
