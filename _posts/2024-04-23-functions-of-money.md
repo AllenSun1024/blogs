@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Functions of Money?"
+title:  "Functions of Money"
 author: Allen Sun
 tags: CryptoCurrency Bitcoin Money
 ---
