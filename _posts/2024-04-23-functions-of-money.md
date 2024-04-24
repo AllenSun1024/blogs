@@ -7,7 +7,9 @@ tags: CryptoCurrency Bitcoin Money
 
 # 核心问题
 
-**How to move economic value across time and space?** (如何跨越时间和空间的限制转移价值？)
+**How to move economic value across time and space?** 
+
+如何跨越时间和空间的限制转移价值？这是每种货币发挥其功能时都必须回答的问题。
 
 # 物物交换(Direct Exchange/Barter)
 
@@ -39,7 +41,7 @@ Coincidence of wants指“你想买的商品，由不想要你所卖商品的人
 
     - 假设你想在一个地方卖掉你的房子，并在另一个地方买套房子，由于房子不可以搬运，所以不能实现。
 
-# 货币的功能
+# 货币的功能(Indirect Exchange)
 
 **A good that assumes the role of a widely accepted medium of exchange is called money.**
 
