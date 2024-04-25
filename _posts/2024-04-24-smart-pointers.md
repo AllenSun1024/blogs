@@ -81,7 +81,7 @@ void foo(){
 
         - 弱计数：
 
-    ![logical model](/docs/assets/smart_pointers_1.png)
+    ![](../assets/images/smart_pointers_1.png)
 
 # 4 weak_ptr
 
