@@ -73,6 +73,13 @@ void foo(){
 
 - 引用计数器
 
+```{r, echo=FALSE}
+# Define variable containing url
+url <- ".png"
+```
+## Some cat!
+<center><img src="`r url`"></center>
+
     1. 内存位置：因为不同的指针对象需要共享引用计数器(控制块)，所以需要分配在**堆区**；对于每个指针对象，在自己的栈区维护一个指向控制块的指针即可。
 
     2. 引用计数分强计数和弱计数两类：
