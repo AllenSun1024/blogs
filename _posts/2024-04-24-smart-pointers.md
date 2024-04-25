@@ -99,6 +99,7 @@ void foo(){
 ## 使用make_shared构造指针对象
 
 - 构造指针对象的两种方式
+
 ```cpp
 /* 方式一 */
 auto* ptr = new DataObject(/* args */);  // 为数据对象分配内存
@@ -128,6 +129,7 @@ auto shptr = std::make_shared<DataObject>(/* args */);
 
 
 - “死锁”场景：两个shared_ptr相互引用，这两个shared_ptr的引用计数永远不会减为0，对应的资源永远不会释放。
+
 ```cpp
 class B;
 class A
@@ -143,6 +145,7 @@ public:
 ```
 
 - 破除“死锁”：将相互引用的shared_ptr中的一个置为weak_ptr。由前述可知，weak_ptr不会增加强引用计数，所以不会影响资源的释放。
+
 ```cpp
 class B;
 class A
