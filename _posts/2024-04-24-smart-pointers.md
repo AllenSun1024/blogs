@@ -75,7 +75,7 @@ void foo(){
 
 ```{r, echo=FALSE}
 # Define variable containing url
-url <- ".png"
+url <- "https://github.com/AllenSun1024/blogs/blob/main/figures/smart_pointers_1.png"
 ```
 ## Some cat!
 <center><img src="`r url`"></center>
