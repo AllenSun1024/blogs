@@ -73,8 +73,6 @@ void foo(){
 
 - 引用计数器
 
-![](https://github.com/AllenSun1024/blogs/blob/main/docs/assets/smart_pointers_1.png)
-
     1. 内存位置：因为不同的指针对象需要共享引用计数器(控制块)，所以需要分配在**堆区**；对于每个指针对象，在自己的栈区维护一个指向控制块的指针即可。
 
     2. 引用计数分强计数和弱计数两类：
@@ -82,6 +80,8 @@ void foo(){
         - 强计数：
 
         - 弱计数：
+
+    ![logical model](https://github.com/AllenSun1024/blogs/blob/main/docs/assets/smart_pointers_1.png)
 
 # 4 weak_ptr
 
