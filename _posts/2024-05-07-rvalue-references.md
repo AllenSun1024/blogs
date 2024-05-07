@@ -22,6 +22,7 @@ tags: C++ Rvalue Move-Semantics
 2. 例子
 
 - 不可对右值进行赋值操作。
+
 ```cpp
 int a = 1, b = 2;  // a与b都是左值
 a = a * b;  // ok
@@ -29,6 +30,7 @@ a * b = 3;  // error：a * b是右值，不可以对右值赋值
 ```
 
 - 不可对右值进行取址操作。
+
 ```cpp
 int& foo();  // 函数声明，返回值类型为int引用
 int foobar();  // 函数声明
