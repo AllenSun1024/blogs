@@ -21,7 +21,7 @@ tags: C++ Rvalue Move-Semantics
 
 # 2 左值引用与右值引用
 
-引用即变量的别名，底层用指针实现。
+    引用即变量的别名，底层用指针实现。
 
 - 左值引用
 
@@ -75,4 +75,17 @@ tags: C++ Rvalue Move-Semantics
 
         A：读懂全文后，你就知道啦。
 
-# 3 
+# 3 std::move()
+
+    虽然名字叫move，但背地里只做了类型转换，将move的参数转换成右值。
+
+    ```cpp
+    template <class T>
+    typename remove_reference<T>::type&&
+    move(T&& a){
+        return a;
+    }
+    ```
+
+# 4 为什么需要右值引用？
+
