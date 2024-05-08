@@ -50,3 +50,15 @@ tags: C++ Rvalue Move-Semantics
 - Q&A
 
     1. 左/右值引用自身是左值还是右值？
+
+    A：左/右值引用有自己的内存，可以出现在赋值符=左边，故为左值。
+
+    2. 右值引用是否可以指向左值？
+
+    A：可以通过std::move
+
+        ```cpp
+        int a = 1;
+        int&& ref1 = a;  // error
+        int&& ref2 = std::move(a);  // ok
+        ```
