@@ -88,3 +88,10 @@ tags: C++ Rvalue Move-Semantics
     A&& a_ref4 = foo();  // ok
     ```
 
+# 为什么要有右值引用？
+
+## 移动语义(Move Semantics)
+
+## 完美传播(Perfect Forwarding)
+
+# 右值的底层实现逻辑是什么？
