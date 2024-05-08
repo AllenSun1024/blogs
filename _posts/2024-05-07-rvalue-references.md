@@ -94,25 +94,25 @@ tags: C++ Rvalue Move-Semantics
 
 1. 背景
 
-在代码中，存在大量的拷贝。拷贝的代价可能很高，这时候需要扪心自问：“一定要拷贝吗？直接抢过来行不行？”
+    如果在代码中，存在大量的拷贝，拷贝的代价可能很高。这时候，需要扪心自问：“一定要拷贝吗？直接抢过来行不行？”
 
-```cpp
-template <class T> swap(T& a, T& b){
-    T tmp(a);  // now we have two copies of a
-    a = b;     // now we have two copies of b
-    b = tmp;   // now we have two copies of tmp(aka a)
-}
-```
+    ```cpp
+    template <class T> swap(T& a, T& b){
+        T tmp(a);  // now we have two copies of a
+        a = b;     // now we have two copies of b
+        b = tmp;   // now we have two copies of tmp(aka a)
+    }
+    ```
 
-我们只想要交换a和b，但上述代码用到了大量的拷贝操作，降低了程序性能。可以考虑“直接把对方的值抢过来”。
+    我们只想要交换a和b，但上述代码用到了多次拷贝操作，降低了程序性能，可以考虑“直接把对方的值抢过来”。
 
-```cpp
-template <class T> swap(T& a, T& b){
-    T tmp(std::move(a));
-    a = std::move(b);
-    b = std::move(tmp);
-}
-```
+    ```cpp
+    template <class T> swap(T& a, T& b){
+        T tmp(std::move(a));
+        a = std::move(b);
+        b = std::move(tmp);
+    }
+    ```
 
 2. std::move()
 
