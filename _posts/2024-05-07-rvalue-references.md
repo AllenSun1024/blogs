@@ -55,10 +55,18 @@ tags: C++ Rvalue Move-Semantics
 
     2. 右值引用是否可以指向左值？
 
-        A：可以通过std::move
+        A：可以通过std::move()。
 
         ```cpp
         int a = 1;
         int&& ref1 = a;  // error
         int&& ref2 = std::move(a);  // ok
         ```
+
+        另外，右值引用可以指向右值的底层行为逻辑是：首先，将右值提升为左值；然后，定义一个右值引用；最后，通过std::move()使得右值引用指向对应左值。
+
+    3. 为什么需要右值引用指向左值？
+
+        A：读懂全文后，你就知道啦。
+
+# 3 
