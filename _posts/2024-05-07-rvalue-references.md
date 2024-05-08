@@ -88,10 +88,34 @@ tags: C++ Rvalue Move-Semantics
     A&& a_ref4 = foo();  // ok
     ```
 
-# 为什么要有右值引用？
+# 3 为什么要有右值引用？
 
 ## 移动语义(Move Semantics)
 
-## 完美传播(Perfect Forwarding)
+1. 背景
 
-# 右值的底层实现逻辑是什么？
+在代码中，存在大量的拷贝。拷贝的代价可能很高，这时候需要扪心自问：“一定要拷贝吗？直接抢过来行不行？”
+
+```cpp
+template <class T> swap(T& a, T& b){
+    T tmp(a);  // now we have two copies of a
+    a = b;     // now we have two copies of b
+    b = tmp;   // now we have two copies of tmp(aka a)
+}
+```
+
+我们只想要交换a和b，但上述代码用到了大量的拷贝操作，降低了程序性能。可以考虑“直接把对方的值抢过来”。
+
+```cpp
+template <class T> swap(T& a, T& b){
+    T tmp(std::move(a));
+    a = std::move(b);
+    b = std::move(tmp);
+}
+```
+
+2. std::move()
+
+
+
+## 完美传播(Perfect Forwarding)
