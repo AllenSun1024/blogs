@@ -90,6 +90,8 @@ tags: C++ Rvalue Move-Semantics
 
 # 3 为什么要有右值引用？
 
+在**不增加运行时开销**的前提下，实现移动语义；实现完美传播。
+
 ## 移动语义(Move Semantics)
 
 1. 背景
@@ -104,7 +106,7 @@ tags: C++ Rvalue Move-Semantics
     }
     ```
 
-    我们只想要交换a和b，但上述代码用到了多次拷贝操作，降低了程序性能，可以考虑“直接把对方的值抢过来”。
+    我们只想要交换a和b，但上述代码用到了多次拷贝操作，降低了程序性能，可以考虑“直接把对方的值(内存)抢过来”。
 
     ```cpp
     template <class T> swap(T& a, T& b){
@@ -116,6 +118,14 @@ tags: C++ Rvalue Move-Semantics
 
 2. std::move()
 
+    - 假设`target = std::move(source)`，move会将输入参数source的值(内存)**夺过来**送给target，这对source来说**可能**是destructive行为。
 
+    - move会对source产生哪些destructive影响？
+
+        ```cpp
+        #include <iostream>
+        ```
+
+    
 
 ## 完美传播(Perfect Forwarding)
