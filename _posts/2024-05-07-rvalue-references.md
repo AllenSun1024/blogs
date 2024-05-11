@@ -21,7 +21,7 @@ tags: C++ Rvalue Move-Semantics
 
 # 2 左值引用与右值引用
 
-引用即变量的别名，底层用指针实现。引用存在的意义是：**避免参数拷贝**。
+引用即变量的别名，底层用指针实现。引用存在的意义是：**传参数时避免拷贝**。
 
 - 左值引用
 
@@ -91,7 +91,7 @@ move(T&& a){
 }
 ```
 
-## 问题背景
+## 问题分析
 
 ```cpp
 /* 代码A */
@@ -161,7 +161,7 @@ public:
 /* 代码C */
 class Array{
 public:
-    // 深拷贝，左值引用
+    // 深拷贝，左值引用，《拷贝构造》
     Array(const Array& other){
         size_ = other.size_;
         data_ = new int[size_];
@@ -169,7 +169,7 @@ public:
             data_[i] = other.data_[i];
         }
     }
-    // 浅拷贝，右值引用
+    // 浅拷贝，右值引用，《移动构造》
     Array(Array&& other){
         size_ = other.size_;
         data_ = other.data_;
@@ -183,6 +183,16 @@ public:
     - 实现优雅，不需要额外增加参数move。
 
     - 如果用户传入的是临时对象(右值)，则直接进行浅拷贝以提高程序性能。
+
+## 典例赏析
+
+赏析前，需要提醒一句：不是std::move()提高了性能，而是通过std::move()做类型转换后，调用到**移动构造/赋值函数**而非**拷贝构造/赋值函数**，从而提高了性能。
+
+1. case1：移动构造
+
+
+2. case2：移动赋值
+
 
 # 4 完美转发(Perfect Forwarding)
 
