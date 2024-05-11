@@ -190,26 +190,26 @@ public:
 
 1. case1：移动构造
 
-```cpp
-std::string str = "I've already learned what is Move Semantics.";
-std::vector<std::string> vec;
+    ```cpp
+    std::string str = "I've already learned what is Move Semantics.";
+    std::vector<std::string> vec;
 
-vec.push_back(str);  // 调用拷贝构造
+    vec.push_back(str);  // 调用拷贝构造
 
-/* 调用移动构造，str失去原有值变成空串 */
-vec.push_back(std::move(str));
-```
+    /* 调用移动构造，str失去原有值变成空串 */
+    vec.push_back(std::move(str));
+    ```
 
 2. case2：移动赋值
 
-```cpp
-std::unique_ptr<A> ptr = std::make_unique<A>();
+    ```cpp
+    std::unique_ptr<A> ptr = std::make_unique<A>();
 
-/* 调用移动赋值，ptr失去原有资源的所有权变成空指针 */
-std::unique_ptr<A> ptr1 = std::move(ptr);
+    /* 调用移动赋值，ptr失去原有资源的所有权变成空指针 */
+    std::unique_ptr<A> ptr1 = std::move(ptr);
 
-std::unique_ptr<A> ptr2 = ptr;  // error：unique_ptr不支持拷贝赋值
-```
+    std::unique_ptr<A> ptr2 = ptr;  // error：unique_ptr不支持拷贝赋值
+    ```
 
 
 # 4 完美转发(Perfect Forwarding)
@@ -240,7 +240,7 @@ void func2(int&& ref_r){
 }
 
 void foo(int&& ref_r){
-    func1(ref_r);  // ok, 左值引用ref_r是左值
+    func1(ref_r);  // ok, 右值引用ref_r是左值
     func1(std::forward<int&>(ref_r));  // ok, std::forward会将ref_r转换为左值
 
     func2(ref_r); // error：func2需要的参数是右值
