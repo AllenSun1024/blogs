@@ -83,13 +83,13 @@ tags: C++ Rvalue Move-Semantics
 
 虽然名字叫move，但背地里只做了类型转换，将move的参数转换成右值。
 
-    ```cpp
-    template <class T>
-    typename remove_reference<T>::type&&
-    move(T&& a){
-        return a;
-    }
-    ```
+```cpp
+template <class T>
+typename remove_reference<T>::type&&
+move(T&& a){
+    return a;
+}
+```
 
 ## 问题背景
 
@@ -128,15 +128,61 @@ public:
 
     - 虽然通过左值引用传参避免了一次拷贝，但是在拷贝构造函数、拷贝赋值函数的内部实现中，还是进行了**深拷贝**。
 
-    - 如果被拷贝者在拷贝后不再被需要，那么是否可以直接进行**浅拷贝**以提高程序性能？
+    - 如果**被拷贝者在拷贝后不再被需要**，那么是否可以直接进行**浅拷贝**以提高程序性能？
 
 ```cpp
 /* 代码B */
 class Array{
 public:
-    
+    // 左值引用——拷贝构造
+    Array(const Array& other){
+        size_ = other.size_;
+        data_ = new int[size_];
+        for(int i = 0; i < size_; i++){
+            data_[i] = other.data_[i];
+        }
+    }
+    // 左值引用——拷贝构造函数重载
+    Array(const Array& other, bool move){
+        size_ = other.size_;
+        data_ = other.data_;
+        other.data_ = nullptr;  // error：无法修改const修饰的参数
+    }
 };
 ```
+
+- 在**代码B**中，存在如下问题：
+
+    - const左值引用虽然可以接受右值，但是无法实现浅拷贝。
+
+    - 还需要加个参数move，实现得不优雅。
+
+```cpp
+/* 代码C */
+class Array{
+public:
+    // 深拷贝，左值引用
+    Array(const Array& other){
+        size_ = other.size_;
+        data_ = new int[size_];
+        for(int i = 0; i < size_; i++){
+            data_[i] = other.data_[i];
+        }
+    }
+    // 浅拷贝，右值引用
+    Array(Array&& other){
+        size_ = other.size_;
+        data_ = other.data_;
+        other.data_ = nullptr;  // 防止other析构data_指向的资源
+    }
+};
+```
+
+- 在**代码C**中，存在如下优点：
+
+    - 实现优雅，不需要额外增加参数move。
+
+    - 如果用户传入的是临时对象(右值)，则直接进行浅拷贝以提高程序性能。
 
 # 4 完美转发(Perfect Forwarding)
 
