@@ -218,7 +218,11 @@ std::unique_ptr<A> ptr2 = ptr;  // error：unique_ptr不支持拷贝赋值
 
 并不做转发，做类型转换，比std::move()的功能更强大。主要用于模板编程的参数转发。
 
-- 类型转换逻辑：std::forward<T>(u)
+- 类型转换逻辑：
+
+    ```cpp
+    std::forward<T>(u)
+    ```
 
     - 如果T是左值引用类型，则将u转换为T类型的左值；
 
