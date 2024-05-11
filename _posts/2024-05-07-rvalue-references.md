@@ -186,14 +186,61 @@ public:
 
 ## 典例赏析
 
-赏析前，需要提醒一句：不是std::move()提高了性能，而是通过std::move()做类型转换后，调用到**移动构造/赋值函数**而非**拷贝构造/赋值函数**，从而提高了性能。
+提醒：不是std::move()提高了性能，而是通过std::move()做类型转换后，调用到**移动构造/赋值函数**而非**拷贝构造/赋值函数**，从而提高了性能。
 
 1. case1：移动构造
 
+```cpp
+std::string str = "I've already learned what is Move Semantics.";
+std::vector<std::string> vec;
+
+vec.push_back(str);  // 调用拷贝构造
+
+/* 调用移动构造，str失去原有值变成空串 */
+vec.push_back(std::move(str));
+```
 
 2. case2：移动赋值
+
+```cpp
+std::unique_ptr<A> ptr = std::make_unique<A>();
+
+/* 调用移动赋值，ptr失去原有资源的所有权变成空指针 */
+std::unique_ptr<A> ptr1 = std::move(ptr);
+
+std::unique_ptr<A> ptr2 = ptr;  // error：unique_ptr不支持拷贝赋值
+```
 
 
 # 4 完美转发(Perfect Forwarding)
 
+## std::forward()
 
+并不做转发，做类型转换，比std::move()的功能更强大。主要用于模板编程的参数转发。
+
+- 类型转换逻辑：std::forward<T>(u)
+
+    - 如果T是左值引用类型，则将u转换为T类型的左值；
+
+    - 否则，将u转换为T类型的右值。
+
+## 典例赏析
+
+```cpp
+void func1(int& ref_l){
+    ref_l = 1;
+}
+
+void func2(int&& ref_r){
+    ref_r = 1;
+}
+
+void foo(int&& ref_r){
+    func1(ref_r);  // ok, 左值引用ref_r是左值
+    func1(std::forward<int&>(ref_r));  // ok, std::forward会将ref_r转换为左值
+
+    func2(ref_r); // error：func2需要的参数是右值
+    func2(std::move(ref_r));  // ok, std::move将ref_r转换为右值
+    func2(std::forward<int&&>(ref_r));  // ok, std::forward将ref_r转换为右值
+}
+```
