@@ -5,19 +5,23 @@ author: Allen Sun
 tags: C++ Rvalue Move-Semantics
 ---
 
-# 1 左值与右值
+# 1 The value categories
 
-- 左值
+- lvalues(左值)
 
-    - 可以在赋值符=左边出现。
+    - have an identity and can't be moved from
 
-    - 有地址，即占据内存。
+- prvalues(右值)
 
-- 右值
+    - don't have an identity and can be moved from
 
-    - 可以在赋值符=右边出现。
+    - 通常包括：字面常量(如：5)、临时变量(如：函数返回值)。
 
-    - 不可取地址，通常包括：字面常量(如：5, '5')、临时变量(如：函数返回值)。
+- xvalues(eXpiring values)
+
+    - have an identity and can be moved from
+
+    - manually designate name as expiring by using the std::move cast
 
 # 2 左值引用与右值引用
 
@@ -51,7 +55,7 @@ tags: C++ Rvalue Move-Semantics
 
     1. 左/右值引用自身是左值还是右值？
 
-        A：左值引用有自己的内存，可以出现在赋值符=左边，故为左值。右值引用既可以是左值(被直接声明时)，也可以是右值(作为函数返回值时)。
+        A：左值引用是左值。右值引用既可以是左值(被直接声明时)，也可以是右值(作为函数返回值时)。
 
     2. 右值引用是否可以指向左值？
 
@@ -128,7 +132,7 @@ public:
 
     - 虽然通过左值引用传参避免了一次拷贝，但是在拷贝构造函数、拷贝赋值函数的内部实现中，还是进行了**深拷贝**。
 
-    - 如果**被拷贝者在拷贝后不再被需要**，那么是否可以直接进行**浅拷贝**以提高程序性能？
+    - 如果**被拷贝者在拷贝后不再被需要**(expiring value)，那么是否可以直接进行**浅拷贝**以提高程序性能？
 
 ```cpp
 /* 代码B */
@@ -186,7 +190,7 @@ public:
 
 ## 典例赏析
 
-提醒：不是std::move()提高了性能，而是通过std::move()做类型转换后，调用到**移动构造/赋值函数**而非**拷贝构造/赋值函数**，从而提高了性能。
+提醒：不是std::move()提高了性能，而是通过std::move()做类型转换后，调用到**移动**构造/赋值函数而非**拷贝**构造/赋值函数，从而提高了性能。
 
 1. case1：移动构造
 
