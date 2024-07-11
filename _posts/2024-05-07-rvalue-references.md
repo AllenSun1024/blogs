@@ -5,27 +5,27 @@ author: Allen Sun
 tags: C++ Rvalue Move-Semantics
 ---
 
-# 1 The value categories
+# 1 值的类型(The value categories)
 
-- lvalues(左值)
+- 左值(lvalues)
 
     - have an identity and can't be moved from
 
-- prvalues(右值)
+- 右值(prvalues)
 
     - don't have an identity and can be moved from
 
     - 通常包括：字面常量(如：5)、临时变量(如：函数返回值)。
 
-- xvalues(eXpiring values)
+- 过期值(xvalues，eXpiring values)
 
     - have an identity and can be moved from
 
     - manually designate name as expiring by using the std::move cast
 
-# 2 左值引用与右值引用
+# 2 引用
 
-引用即变量的别名，底层用指针实现。引用存在的意义是：**传参数时避免拷贝**。
+引用即变量的别名，底层用指针实现。引用存在的意义是：**传参时避免拷贝**。
 
 - 左值引用
 
@@ -67,13 +67,13 @@ tags: C++ Rvalue Move-Semantics
         int&& ref2 = std::move(a);  // ok
         ```
 
-        另外，**右值引用可以指向右值的底层行为逻辑**是：首先，将右值提升为左值(将临时变量从寄存器持久化到内存)；然后，定义一个右值引用；最后，通过std::move()使得右值引用指向对应左值。
+        另外，**右值引用可以指向右值的底层行为逻辑**是：首先，将右值提升为左值；然后，定义一个右值引用；最后，通过std::move()使得右值引用指向对应左值。
 
     3. 左值引用和右值引用有什么区别？
 
         - 函数传参时使用二者没有**性能**差异，都可以避免拷贝赋值。
 
-        - 右值引用作为函数形参比左值引用更**灵活**，既可以接受右值，也可以接受move后的左值。如果采用左值引用作为函数形参并且要求左右值实参都接受，那么左值引用必须声明为const。
+        - 右值引用作为函数形参比左值引用更**灵活**，既可以接受右值，也可以接受过期值。如果采用左值引用作为函数形参并且要求左右值实参都接受，那么左值引用必须声明为const。
 
     4. 为什么需要右值引用？
 
