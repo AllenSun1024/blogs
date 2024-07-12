@@ -2,10 +2,6 @@
 title: Allen's Blog
 ---
 
-# Linux
-
-1. [Executable Linkable Format](https://allensun1024.github.io/blogs/2024/06/25/executable-linkable-format.html)
-
 # C++
 
 1. [Smart Pointers](https://allensun1024.github.io/blogs/2024/04/24/smart-pointers.html)
@@ -16,7 +12,6 @@ title: Allen's Blog
 
 1. [Functions of Money](https://allensun1024.github.io/blogs/2024/04/23/functions-of-money.html)
 
-
 # Investing
 
-1. [Long Short Equity](https://allensun1024.github.io/blogs/2024/07/12/long-short-equity.html)
+1. [Long Short Equity](https://allensun1024.github.io/blogs/2024/06/25/long-short-equity.html)

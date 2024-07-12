@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Executable Linkable Format"
+title:  "Long Short Equity"
 author: Allen Sun
 tags: Linux ELF Dynamic-Linking
 ---
