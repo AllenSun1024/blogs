@@ -19,4 +19,4 @@ title: Allen's Blog
 
 # Investing
 
-1. [Long Short Equity](https://allensun1024.github.io/blogs/2024/07/13/long-short-equity.html)
+1. [Long Short Equity](https://allensun1024.github.io/blogs/2024/07/12/long-short-equity.html)
