@@ -15,3 +15,8 @@ title: Allen's Blog
 # CryptoCurrency
 
 1. [Functions of Money](https://allensun1024.github.io/blogs/2024/04/23/functions-of-money.html)
+
+
+# Investing
+
+1. [Long short Equity](https://allensun1024.github.io/blogs/2024/07/13/long-short-equity.html)
