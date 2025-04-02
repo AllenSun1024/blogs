@@ -15,3 +15,5 @@ title: Allen's Blog
 # Investing
 
 1. [Long Short Equity](https://allensun1024.github.io/blogs/2024/06/25/long-short-equity.html)
+
+2. [Intern Recruitment](https://allensun1024.github.io/blogs//2025/04/02/guangxia-recruitment.html)
