@@ -5,7 +5,7 @@ author: Allen Sun
 tags: Recruitment
 ---
 
-# Internship Position: C++ Developer – High-Frequency Trading
+# Internship Position: C++ Developer – Quant Trading
 
 **Location:** Shanghai, Pudong New Area
 
@@ -13,11 +13,13 @@ tags: Recruitment
 
 **Duration:** At least 2 months
 
-----------------------------------------------------------------
-
 ## Who We Are
 
-We are a startup proprietary trading firm specializing in high-frequency trading. Our team leverages cutting-edge technology and quantitative strategies to execute trades with extreme efficiency. We are looking for a highly motivated intern to join our C++ development team.
+We are a startup proprietary trading firm specializing in high-frequency trading.
+
+Our team leverages cutting-edge technology and quantitative strategies to execute trades with extreme efficiency.
+
+We are looking for a highly motivated intern to join our C++ development team.
 
 ## Responsibilities
 
@@ -43,6 +45,4 @@ We are a startup proprietary trading firm specializing in high-frequency trading
 
 - Experience with low-latency programming.
 
------------------------------------------------------------------------------------------------------------------------
-
-If you're excited about applying your technical skills in a fast-paced trading environment, we'd love to hear from you! Please send your resume and a brief introduction to nju15sc@gmail.com.
+If you're excited about applying your technical skills in a fast-paced trading environment, please send your resume to AllenSun1024@outlook.com.
